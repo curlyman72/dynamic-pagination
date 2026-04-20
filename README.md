@@ -26,7 +26,7 @@ Live demo: https://raptorlabs.com/portfolio/demos/dynamic-pagination
 ## Project Structure
 
 ```text
-dp2/
+dynamic-pagination/
 ├── config/
 │   ├── db.config.php
 │   └── paginator.config.json
@@ -88,7 +88,7 @@ It can:
 - optionally drop and recreate the target database
 - verify that the `colors` sample table was imported
 
-Open the installer from the folder where you copied `dp2`:
+Open the installer from the folder where you copied the dynamic pagination files to:
 
 ```text
 ./install.php
@@ -107,7 +107,7 @@ The bundled SQL dump was exported from the live localhost demo database and cont
 
 ## Quick Start
 
-1. Copy the `dp2` files into your project.
+1. Copy the dynamic pagination files into your project.
 2. Run `install.php` if you want the sample localhost demo database.
 3. Update your database connection settings if you are using a different database.
 4. Point the paginator at your table and API endpoint.
