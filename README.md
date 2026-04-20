@@ -4,6 +4,8 @@ API-driven PHP and JavaScript paginator for large datasets, built for fast pagin
 
 This component is designed for projects that need a reusable pagination layer without locking the UI to one framework. It renders a server-backed table, exposes a JSON API, supports keyboard-accessible navigation, and includes a configurable toolbar for sorting, page size, and column customization.
 
+Live demo: https://raptorlabs.com/portfolio/demos/dynamic-pagination
+
 ## Features
 
 - API-first pagination with consistent `data`, `meta`, and `links` response structure
@@ -409,6 +411,8 @@ The shared stylesheet is scoped under `.dynamic-paginator` so it can be embedded
 - retained sizing values across mode changes
 - GitHub, author, and support links
 - compatibility with the bundled `sql/pagination_demo.sample.sql` installer seed
+
+Live demo can be found here:  <https://raptorlabs.com/portfolio/demos/dynamic-pagination>
 
 ## License
 
