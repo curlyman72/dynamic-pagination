@@ -1,0 +1,505 @@
+/* Root component shell and shared design tokens. */
+.dynamic-paginator {
+    --dp-border: #d0d7de;
+    --dp-muted: #465466;
+    --dp-bg: #ffffff;
+    --dp-bg-subtle: #f2f6fa;
+    --dp-accent: #005fcc;
+    --dp-accent-strong: #004799;
+    --dp-danger-bg: #fff1f1;
+    --dp-danger-text: #7a190f;
+    --dp-focus: #0b63ce;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #1f2328;
+    background: var(--dp-bg);
+    border: 1px solid var(--dp-border);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
+    width: var(--dp-component-width, 100%);
+    min-width: var(--dp-component-min-width, 0px);
+    max-width: var(--dp-component-max-width, none);
+    box-sizing: border-box;
+}
+
+/* Header, title, and toolbar controls. */
+.dynamic-paginator .pagination-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+
+.dynamic-paginator .pagination-title {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #12385e;
+}
+
+.dynamic-paginator .pagination-toolbar {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dynamic-paginator .toolbar-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.dynamic-paginator .toolbar-label {
+    font-weight: 700;
+    color: var(--dp-muted);
+}
+
+.dynamic-paginator .pagination-toolbar input,
+.dynamic-paginator .pagination-toolbar select,
+.dynamic-paginator .pagination-toolbar button,
+.dynamic-paginator .toolbar-move-btn {
+    border: 1px solid var(--dp-border);
+    background: #fff;
+    color: #1f2328;
+    border-radius: 8px;
+    padding: 8px 10px;
+    font: inherit;
+}
+
+.dynamic-paginator .toolbar-page-size-input {
+    width: 88px;
+}
+
+.dynamic-paginator .toolbar-customize-toggle {
+    min-width: 42px;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 999px;
+}
+
+.dynamic-paginator .toolbar-customize-toggle[aria-expanded="true"] {
+    background: #e5f0ff;
+    border-color: #8eb7ec;
+    color: #0a4f9f;
+}
+
+.dynamic-paginator .toolbar-gear-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Column customization panel and list layout. */
+.dynamic-paginator .toolbar-customize-panel {
+    border: 1px solid var(--dp-border);
+    background: #f8fbff;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.dynamic-paginator .toolbar-customize-help {
+    color: var(--dp-muted);
+    margin-bottom: 12px;
+}
+
+.dynamic-paginator .toolbar-column-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+}
+
+.dynamic-paginator .toolbar-column-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #dbe5ef;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.dynamic-paginator .toolbar-column-toggle {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+}
+
+.dynamic-paginator .toolbar-column-actions {
+    display: inline-flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Totals and pagination controls. */
+.dynamic-paginator .pagination-total {
+    color: var(--dp-muted);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.dynamic-paginator .pagination-total.bottom {
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+.dynamic-paginator .pagination-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.dynamic-paginator .pagination-controls.bottom {
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.dynamic-paginator .pagination-controls button,
+.dynamic-paginator .position-thumb {
+    border: 1px solid var(--dp-border);
+    background: var(--dp-bg);
+    color: #1f2328;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.dynamic-paginator .pagination-controls button:hover:not(:disabled),
+.dynamic-paginator .position-thumb:hover {
+    background: var(--dp-bg-subtle);
+    border-color: #9ea7b3;
+}
+
+.dynamic-paginator .page-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.dynamic-paginator .page-jump {
+    width: 72px;
+    padding: 8px 10px;
+    border: 1px solid var(--dp-border);
+    border-radius: 8px;
+    text-align: center;
+    color: #17212b;
+    background: #fff;
+}
+
+/* Dataset position bar used for large-result jumping. */
+.dynamic-paginator .position-bar {
+    margin: 10px 0 14px;
+}
+
+.dynamic-paginator .position-track {
+    position: relative;
+    height: 10px;
+    border-radius: 999px;
+    background: #d8e2ec;
+    overflow: visible;
+    cursor: pointer;
+}
+
+.dynamic-paginator .position-fill {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 0;
+    background: linear-gradient(90deg, var(--dp-accent), #2e8cff);
+    border-radius: inherit;
+}
+
+.dynamic-paginator .position-thumb {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    padding: 0;
+    border-radius: 999px;
+    background: var(--dp-bg);
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    border: 2px solid var(--dp-accent-strong);
+}
+
+.dynamic-paginator .position-thumb:active {
+    cursor: grabbing;
+}
+
+/* Focus, pointer, and disabled-state affordances. */
+.dynamic-paginator .pagination-toolbar input,
+.dynamic-paginator .pagination-toolbar select,
+.dynamic-paginator .pagination-toolbar button,
+.dynamic-paginator .toolbar-column-toggle,
+.dynamic-paginator .toolbar-column-toggle input,
+.dynamic-paginator .toolbar-move-btn,
+.dynamic-paginator .page-jump,
+.dynamic-paginator .position-track {
+    cursor: pointer;
+}
+
+.dynamic-paginator .pagination-controls button:focus-visible,
+.dynamic-paginator .page-jump:focus-visible,
+.dynamic-paginator .pagination-scroll-region:focus-visible,
+.dynamic-paginator .position-thumb:focus-visible,
+.dynamic-paginator .pagination-toolbar select:focus-visible,
+.dynamic-paginator .pagination-toolbar button:focus-visible,
+.dynamic-paginator .toolbar-move-btn:focus-visible,
+.dynamic-paginator .toolbar-column-toggle input:focus-visible {
+    outline: 3px solid rgba(0, 95, 204, 0.28);
+    outline-offset: 2px;
+    border-color: var(--dp-focus);
+}
+
+.dynamic-paginator .pagination-controls button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.dynamic-paginator .toolbar-move-btn:disabled {
+    opacity: 0.72;
+    background: #f3f6f9;
+    color: #667588;
+}
+
+/* Scroll viewport and rendered data table. */
+.dynamic-paginator .pagination-data-wrapper {
+    position: relative;
+}
+
+.dynamic-paginator[data-table-scroll-layout="single_region"] .pagination-data-wrapper {
+    width: var(--dp-viewport-width, 100%);
+    height: var(--dp-viewport-height, auto);
+    min-height: var(--dp-viewport-min-height, 320px);
+    max-height: var(--dp-viewport-max-height, 500px);
+    overflow: auto;
+    overscroll-behavior: contain;
+    border: 1px solid var(--dp-border);
+    border-radius: 10px;
+    background: #fbfcfe;
+    box-sizing: border-box;
+}
+
+.dynamic-paginator[data-table-scroll-layout="single_region"] .pagination-table-shell {
+    min-height: 220px;
+}
+
+.dynamic-paginator .pagination-table-viewport {
+    width: var(--dp-viewport-width, 100%);
+    height: var(--dp-viewport-height, auto);
+    min-height: var(--dp-viewport-min-height, 320px);
+    max-height: var(--dp-viewport-max-height, 500px);
+    border: 1px solid var(--dp-border);
+    border-radius: 10px;
+    background: #fbfcfe;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.dynamic-paginator .pagination-table-head-shell {
+    border-bottom: 1px solid var(--dp-border);
+    background: #e5eef9;
+}
+
+.dynamic-paginator .pagination-scroll-region {
+    min-height: 0;
+    flex: 1 1 auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.dynamic-paginator .pagination-table-body-shell {
+    min-height: 220px;
+}
+
+.dynamic-paginator .pagination-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+.dynamic-paginator[data-table-scroll-layout="single_region"] .pagination-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.dynamic-paginator .pagination-table thead th {
+    background: #e5eef9;
+    color: #17324d;
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--dp-border);
+    white-space: nowrap;
+}
+
+.dynamic-paginator .pagination-table tbody.page-block tr:nth-child(odd) {
+    background: #ffffff;
+}
+
+.dynamic-paginator .pagination-table tbody.page-block tr:nth-child(even) {
+    background: #f8fbff;
+}
+
+.dynamic-paginator .pagination-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e7edf3;
+    max-width: 280px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #1f2328;
+}
+
+.dynamic-paginator .pagination-table tbody.page-block {
+    border-top: 8px solid #eff4f9;
+}
+
+/* Loading, empty, and error feedback. */
+.dynamic-paginator .loading-indicator,
+.dynamic-paginator .pagination-empty,
+.dynamic-paginator .pagination-error {
+    margin: 16px;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.dynamic-paginator .loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--dp-muted);
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 24px;
+    z-index: 4;
+    border-radius: inherit;
+    background: rgba(251, 252, 254, 0.78);
+    backdrop-filter: blur(1px);
+    text-align: center;
+    pointer-events: none;
+}
+
+.dynamic-paginator .loading-indicator[hidden],
+.dynamic-paginator .pagination-empty[hidden],
+.dynamic-paginator .pagination-error[hidden] {
+    display: none;
+}
+
+.dynamic-paginator .spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #c9d7e6;
+    border-top-color: var(--dp-accent);
+    border-radius: 50%;
+    animation: dp-spin 0.8s linear infinite;
+}
+
+.dynamic-paginator .pagination-error {
+    background: var(--dp-danger-bg);
+    color: var(--dp-danger-text);
+    border: 1px solid #f0b9b6;
+}
+
+.dynamic-paginator .pagination-empty {
+    background: #f8fafc;
+    color: var(--dp-muted);
+    border: 1px dashed var(--dp-border);
+}
+
+.dynamic-paginator .pagination-empty h3 {
+    margin: 0 0 8px;
+    color: #1f2328;
+}
+
+.dynamic-paginator .pagination-sentinel {
+    height: 1px;
+}
+
+/* Screen-reader utility content that stays within the paginator namespace. */
+.dynamic-paginator .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Spinner animation used by the loading indicator. */
+@keyframes dp-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Compact layout adjustments for smaller screens. */
+@media (max-width: 768px) {
+    .dynamic-paginator {
+        padding: 12px;
+    }
+
+    .dynamic-paginator .toolbar-group {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .dynamic-paginator .toolbar-page-size-input {
+        width: 100%;
+    }
+
+    .dynamic-paginator .toolbar-column-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .dynamic-paginator .pagination-controls {
+        justify-content: flex-start;
+    }
+
+    .dynamic-paginator .page-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .dynamic-paginator[data-table-scroll-layout="split_header"] .pagination-table-viewport {
+        max-height: 440px;
+    }
+
+    .dynamic-paginator[data-table-scroll-layout="single_region"] .pagination-data-wrapper {
+        max-height: 440px;
+    }
+
+    .dynamic-paginator .pagination-table thead th,
+    .dynamic-paginator .pagination-table td {
+        padding: 10px 12px;
+        max-width: 180px;
+    }
+}
